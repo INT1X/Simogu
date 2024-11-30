@@ -10,7 +10,10 @@ const Dashboard = () => {
       <Sidebar />
       <div className="flex-1">
         <Navbar />
-        <TeacherCharts />
+        <div className="p-5">
+          <h2 className="text-xl font-bold mb-4">Dashboard</h2>
+          <TeacherCharts />
+        </div>
       </div>
     </div>
   );
