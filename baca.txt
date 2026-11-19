@@ -1,0 +1,60 @@
+Buka Services (tekan Windows + R, ketik services.msc, lalu Enter)
+cari PostgreSQL Klik kanan, lalu pilih Start.
+
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+Email:
+admin@simogu.test
+
+Password:
+password123 (sama dengan user lain)
+
+
+jalankan Tinker
+
+Ketik:
+
+php artisan tinker
+
+
+
+Username DB : postgres
+PW DB : SimogudatabaseAWS
+
+Database Port : 5432
+
+PHP VERSI  : 8.4.27
+Laravel Framework 12.66.0
+
+USERNAME EC2 : ubuntu
+
+AWS AKUN ID : 6454-1661-2365
+NAMA : SENDI ALHAZEN MULYONO S1 TEKNIK INFORMATIKA
+Root Password Akun : Unima21210093*
+
+GITHUB_TOKEN=REDACTED_FOR_PUBLIC_REPO
+
+\App\Models\User::create(['name' => 'Admin SIMOGU', 'email' => 'admin@simogu.test', 'password' => bcrypt('password123'), 'role' => 'admin']);
+
+Konek EC2 Via SSH : Terminal : ssh -i kunci-simogu-baru.pem  ubuntu@16.179.27.76
+
+
+jika Error untuk login webnya : docker compose exec simogu-app php artisan key:generate
+
+docker compose down
+docker compose up -d
+
+
+step Login Awal AWS:
+
+ssh -i kunci-simogu-baru.pem ubuntu@16.179.27.76
+cd ~/Skripsi_sendi
+docker compose exec simogu-app npm install
+docker compose exec simogu-app npm run build
+docker compose up -d
+docker compose exec simogu-app php artisan config:clear
+docker compose exec simogu-app php artisan config:cache
+
+Setiap menutup sistem jangan lupa : "docker compose down"

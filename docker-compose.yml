@@ -1,0 +1,13 @@
+services:
+  simogu-app:
+    build: .
+    container_name: simogu-app
+    ports:
+      - "80:80"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/vendor
+      - /app/node_modules
+    restart: always
